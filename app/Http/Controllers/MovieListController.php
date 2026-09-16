@@ -48,12 +48,16 @@ class MovieListController extends Controller
     {
         $movie = $tmdb->getMovieDetails($movieId);
         $similar = $tmdb->getSimilarMovies($movieId)['results'] ?? [];
+        $videos = $tmdb->getMovieVideos($movieId);
+        $watchProviders = $tmdb->getMovieWatchProviders($movieId);
 
         [$favoriteIds, $watchlistIds] = $this->savedIds();
 
         return view('movies.detail', [
             'movie' => $movie,
             'similar' => $similar,
+            'videos' => $videos,
+            'watchProviders' => $watchProviders,
             'favoriteIds' => $favoriteIds,
             'watchlistIds' => $watchlistIds,
         ]);

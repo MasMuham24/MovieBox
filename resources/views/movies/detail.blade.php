@@ -101,6 +101,141 @@
         </div>
     </section>
 
+    @php
+        $trailer = null;
+        foreach ($videos ?? [] as $video) {
+            if (($video['site'] ?? '') === 'YouTube' && ($video['type'] ?? '') === 'Trailer') {
+                $trailer = $video;
+                break;
+            }
+        }
+        if (!$trailer) {
+            foreach ($videos ?? [] as $video) {
+                if (($video['site'] ?? '') === 'YouTube' && in_array($video['type'] ?? '', ['Teaser', 'Clip'])) {
+                    $trailer = $video;
+                    break;
+                }
+            }
+        }
+
+        $indonesiaProviders = $watchProviders['ID'] ?? null;
+        $flatrate = $indonesiaProviders['flatrate'] ?? [];
+        $rent = $indonesiaProviders['rent'] ?? [];
+        $buy = $indonesiaProviders['buy'] ?? [];
+        $tmdbLink = $indonesiaProviders['link'] ?? null;
+    @endphp
+
+    @if ($trailer)
+        <section class="detail-section">
+            <div class="detail-section-inner">
+                <h2 class="detail-section-title">Trailer</h2>
+                <div class="detail-trailer">
+                    <iframe
+                        src="https://www.youtube.com/embed/{{ $trailer['key'] ?? '' }}?rel=0&modestbranding=1"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen
+                        class="detail-trailer-iframe"
+                        title="{{ $trailer['name'] ?? 'Movie Trailer' }}"
+                    ></iframe>
+                </div>
+            </div>
+        </section>
+    @endif
+
+    @if ($flatrate || $rent || $buy)
+        <section class="detail-section">
+            <div class="detail-section-inner">
+                <h2 class="detail-section-title">Where to Watch</h2>
+                
+                @if ($flatrate)
+                    <div class="provider-category">
+                        <h3 class="provider-category-title">Streaming</h3>
+                        <div class="provider-grid">
+                            @foreach ($flatrate as $provider)
+                                <div class="provider-card">
+                                    @if (!empty($provider['logo_path']))
+                                        <img src="https://image.tmdb.org/t/p/original{{ $provider['logo_path'] }}"
+                                             alt="{{ $provider['provider_name'] ?? '' }}"
+                                             class="provider-logo"
+                                        >
+                                    @endif
+                                    <span class="provider-name">{{ $provider['provider_name'] ?? 'Unknown' }}</span>
+                                </div>
+                            @endforeach
+                        </div>
+                    </div>
+                @endif
+
+                @if ($rent)
+                    <div class="provider-category">
+                        <h3 class="provider-category-title">Rent</h3>
+                        <div class="provider-grid">
+                            @foreach ($rent as $provider)
+                                <div class="provider-card">
+                                    @if (!empty($provider['logo_path']))
+                                        <img src="https://image.tmdb.org/t/p/original{{ $provider['logo_path'] }}"
+                                             alt="{{ $provider['provider_name'] ?? '' }}"
+                                             class="provider-logo"
+                                        >
+                                    @endif
+                                    <span class="provider-name">{{ $provider['provider_name'] ?? 'Unknown' }}</span>
+                                </div>
+                            @endforeach
+                        </div>
+                    </div>
+                @endif
+
+                @if ($buy)
+                    <div class="provider-category">
+                        <h3 class="provider-category-title">Buy</h3>
+                        <div class="provider-grid">
+                            @foreach ($buy as $provider)
+                                <div class="provider-card">
+                                    @if (!empty($provider['logo_path']))
+                                        <img src="https://image.tmdb.org/t/p/original{{ $provider['logo_path'] }}"
+                                             alt="{{ $provider['provider_name'] ?? '' }}"
+                                             class="provider-logo"
+                                        >
+                                    @endif
+                                    <span class="provider-name">{{ $provider['provider_name'] ?? 'Unknown' }}</span>
+                                </div>
+                            @endforeach
+                        </div>
+                    </div>
+                @endif
+
+                <div class="provider-attribution">
+                    <p class="provider-attribution-text">
+                        Data provided by 
+                        @if ($tmdbLink)
+                            <a href="{{ $tmdbLink }}" target="_blank" rel="noopener" class="provider-link">JustWatch</a>
+                        @else
+                            JustWatch
+                        @endif
+                        via 
+                        <a href="https://www.themoviedb.org/movie/{{ $movie['id'] ?? '' }}" target="_blank" rel="noopener" class="provider-link">TMDB</a>
+                    </p>
+                </div>
+            </div>
+        </section>
+    @elseif(isset($watchProviders) && !$indonesiaProviders)
+        <section class="detail-section">
+            <div class="detail-section-inner">
+                <h2 class="detail-section-title">Where to Watch</h2>
+                <p class="provider-unavailable">Currently unavailable in Indonesia.</p>
+                <div class="provider-attribution">
+                    <p class="provider-attribution-text">
+                        Data provided by 
+                        <a href="https://www.justwatch.com/" target="_blank" rel="noopener" class="provider-link">JustWatch</a>
+                        via 
+                        <a href="https://www.themoviedb.org/movie/{{ $movie['id'] ?? '' }}" target="_blank" rel="noopener" class="provider-link">TMDB</a>
+                    </p>
+                </div>
+            </div>
+        </section>
+    @endif
+
     <div class="rows">
         @include('partials.movie-row', [
             'title' => 'More Like This',

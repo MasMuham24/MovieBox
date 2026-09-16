@@ -1062,6 +1062,127 @@ button { cursor: pointer; background: none; border: none; padding: 0; }
 
 .detail-actions { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
 
+.detail-section {
+    background: var(--bg);
+    padding: 48px 0;
+}
+
+.detail-section-inner {
+    max-width: 1320px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+.detail-section-title {
+    font-size: clamp(22px, 2.8vw, 32px);
+    font-weight: 700;
+    margin: 0 0 24px;
+}
+
+.detail-trailer {
+    position: relative;
+    width: 100%;
+    max-width: 920px;
+    aspect-ratio: 16 / 9;
+    border-radius: 12px;
+    overflow: hidden;
+    background: var(--card);
+    box-shadow: var(--shadow);
+}
+
+.detail-trailer-iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.provider-category {
+    margin-bottom: 32px;
+}
+
+.provider-category:last-of-type {
+    margin-bottom: 24px;
+}
+
+.provider-category-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text-2);
+    margin: 0 0 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.provider-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 16px;
+    max-width: 920px;
+}
+
+.provider-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 16px;
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+}
+
+.provider-card:hover {
+    background: var(--card-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+}
+
+.provider-logo {
+    width: 64px;
+    height: 64px;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+.provider-name {
+    font-size: 13px;
+    font-weight: 500;
+    text-align: center;
+    color: var(--text-2);
+}
+
+.provider-attribution {
+    margin-top: 8px;
+    padding-top: 20px;
+    border-top: 1px solid var(--line);
+    max-width: 920px;
+}
+
+.provider-attribution-text {
+    margin: 0;
+    font-size: 12px;
+    color: var(--text-3);
+    text-align: center;
+}
+
+.provider-link {
+    color: var(--text-2);
+    text-decoration: underline;
+    transition: color 0.2s ease;
+}
+
+.provider-link:hover {
+    color: var(--text);
+}
+
+.provider-unavailable {
+    color: var(--text-2);
+    font-size: 15px;
+    margin: 0 0 24px;
+}
+
 /* =========================================================
    Toast
    ========================================================= */
@@ -1217,6 +1338,12 @@ button { cursor: pointer; background: none; border: none; padding: 0; }
     .detail-poster { width: min(220px, 60vw); }
     .detail-content { padding: 0 16px 32px; }
     .detail-actions .btn-lg { flex: 1; }
+    .detail-section { padding: 32px 0; }
+    .detail-section-inner { padding: 0 16px; }
+    .detail-section-title { font-size: 20px; margin-bottom: 18px; }
+    .provider-grid { grid-template-columns: repeat(auto-fill, minmax(110px, 1fr)); gap: 12px; }
+    .provider-card { padding: 12px; }
+    .provider-logo { width: 52px; height: 52px; }
     .grid { grid-template-columns: repeat(2, 1fr); gap: 20px 10px; }
     .hero-dots { right: 16px; }
 }

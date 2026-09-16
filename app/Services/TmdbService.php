@@ -58,4 +58,40 @@ class TmdbService
     {
         return $this->request('/search/movie', ['query' => $query, 'page' => $page]);
     }
+
+    public function getMovieVideos(int $movieId): array
+    {
+        try {
+            $response = Http::timeout(10)
+                ->get($this->baseUrl . '/movie/' . $movieId . '/videos', [
+                    'api_key' => $this->apiKey,
+                ]);
+
+            if ($response->successful()) {
+                return $response->json('results', []);
+            }
+
+            return [];
+        } catch (\Exception $e) {
+            return [];
+        }
+    }
+
+    public function getMovieWatchProviders(int $movieId): array
+    {
+        try {
+            $response = Http::timeout(10)
+                ->get($this->baseUrl . '/movie/' . $movieId . '/watch/providers', [
+                    'api_key' => $this->apiKey,
+                ]);
+
+            if ($response->successful()) {
+                return $response->json('results', []);
+            }
+
+            return [];
+        } catch (\Exception $e) {
+            return [];
+        }
+    }
 }
