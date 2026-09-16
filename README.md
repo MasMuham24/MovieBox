@@ -1,66 +1,472 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# 🎬 MovieBox
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+> A modern, cinematic movie discovery and personal watchlist platform built with Laravel and the TMDB API.
 
-## About Laravel
+MovieBox is a full-stack movie web application designed to provide a modern streaming-platform-inspired experience for discovering movies, exploring detailed information, and managing personal favorites and watchlists.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+The project focuses on clean architecture, responsive UI, API integration, and a scalable foundation for future streaming functionality.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+---
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## 🚀 Overview
 
-## Learning Laravel
+MovieBox combines the power of the **TMDB API** with a custom Laravel backend and a cinematic frontend experience.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+Users can:
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+* Discover popular and trending movies
+* Explore different movie categories
+* Search for movies
+* View detailed movie information
+* Save movies to Favorites
+* Add movies to a Watchlist
+* Browse personalized movie collections
+* Navigate through a responsive streaming-style interface
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+The application is being developed incrementally using a **phase-based development approach**, allowing each major feature to be implemented, tested, and validated independently.
 
-## Laravel Sponsors
+---
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+## ✨ Features
 
-### Premium Partners
+### 🎬 Movie Discovery
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+* Popular Movies
+* Now Playing
+* Top Rated
+* Upcoming Movies
+* Recommended Movies
+* Similar Movies
+* Movie search
+* Dynamic movie metadata powered by TMDB
 
-## Contributing
+### 🎞️ Movie Details
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+Each movie provides:
 
-## Code of Conduct
+* Title
+* Poster
+* Backdrop
+* Release date
+* Rating
+* Overview
+* Genres
+* Related movies
+* Watch action
+* Favorite action
+* Watchlist action
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+### ❤️ Favorites
 
-## Security Vulnerabilities
+Users can:
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+* Add movies to Favorites
+* Remove movies from Favorites
+* View their personal Favorites collection
+* Toggle favorite status without a full page reload
 
-## License
+### 🔖 Watchlist
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+Users can:
+
+* Add movies to their Watchlist
+* Remove movies from their Watchlist
+* View saved movies
+* Manage their personal watchlist
+
+### 🔎 Search
+
+MovieBox provides a dedicated movie search experience powered by TMDB, allowing users to quickly discover movies without relying on hardcoded data.
+
+### 🎨 Modern Streaming UI
+
+The interface is designed around a dark cinematic visual system inspired by modern streaming platforms.
+
+Key UI features include:
+
+* Hero movie slider
+* Horizontal movie carousels
+* Movie card hover interactions
+* Sticky navigation
+* Search overlay
+* Profile dropdown
+* Mobile navigation drawer
+* Toast notifications
+* Responsive layouts
+* Dark cinematic theme
+
+---
+
+## 🛠️ Tech Stack
+
+### Backend
+
+* PHP
+* Laravel
+* Laravel Blade
+* Laravel HTTP Client
+* MySQL
+
+### Frontend
+
+* HTML5
+* CSS3
+* JavaScript
+* Responsive UI
+
+### APIs
+
+* TMDB API
+* Internet Archive API
+
+### Development Environment
+
+* XAMPP
+* Composer
+* NPM
+* Git / GitHub
+
+---
+
+## 🏗️ Architecture
+
+MovieBox follows a service-oriented Laravel structure to keep external API communication separated from controllers and presentation logic.
+
+```text
+                         ┌──────────────────┐
+                         │      MovieBox     │
+                         └────────┬─────────┘
+                                  │
+                     ┌────────────┴────────────┐
+                     │                         │
+              Laravel Backend             Frontend
+                     │                         │
+          ┌──────────┴──────────┐       ┌──────┴──────┐
+          │                     │       │             │
+     Controllers            Services   Blade        JavaScript
+          │                     │       │             │
+          │              ┌──────┴──────┐│             │
+          │              │             ││             │
+          │          TmdbService   InternetArchiveService
+          │              │             │
+          └──────────────┴─────────────┘
+                         │
+                  External APIs
+```
+
+---
+
+## 📁 Project Structure
+
+```text
+MovieBox/
+│
+├── app/
+│   ├── Http/
+│   │   └── Controllers/
+│   │       ├── AuthController.php
+│   │       ├── MovieController.php
+│   │       └── MovieListController.php
+│   │
+│   ├── Models/
+│   │   ├── Favorite.php
+│   │   ├── Watchlist.php
+│   │   └── User.php
+│   │
+│   └── Services/
+│       ├── TmdbService.php
+│       └── InternetArchiveService.php
+│
+├── config/
+│   └── internetarchive.php
+│
+├── resources/
+│   ├── css/
+│   │   └── app.css
+│   │
+│   ├── js/
+│   │   └── app.js
+│   │
+│   └── views/
+│       ├── layouts/
+│       ├── partials/
+│       ├── dashboard.blade.php
+│       └── movies/
+│           ├── detail.blade.php
+│           ├── search.blade.php
+│           ├── favorites.blade.php
+│           └── watchlist.blade.php
+│
+├── routes/
+│   └── web.php
+│
+├── database/
+│   └── migrations/
+│
+├── .env.example
+├── artisan
+├── composer.json
+└── package.json
+```
+
+---
+
+## 🔐 Authentication & User Data
+
+MovieBox includes an authentication system that protects user-specific features.
+
+Protected functionality includes:
+
+* Dashboard access
+* Favorites
+* Watchlist
+* User-specific movie collections
+
+Favorites and Watchlist records are associated with authenticated users, ensuring that each user's saved movies remain independent.
+
+---
+
+## 🔌 API Integration
+
+### TMDB
+
+TMDB is used as the primary source for movie metadata, including:
+
+* Movie information
+* Posters
+* Backdrops
+* Ratings
+* Release dates
+* Genres
+* Recommendations
+* Search results
+* Movie videos
+
+API credentials are stored through environment variables and are not committed to the repository.
+
+Example:
+
+```env
+TMDB_API_KEY=your_tmdb_api_key
+```
+
+### Internet Archive
+
+Internet Archive integration has been prepared as part of the streaming architecture.
+
+The `InternetArchiveService` currently provides functionality for:
+
+* Searching archive items
+* Retrieving item metadata
+* Retrieving available files
+* Detecting playable video formats
+* Reading available rights/license metadata
+
+Streaming availability is handled separately from movie metadata to keep the architecture flexible for future video providers.
+
+---
+
+## 📈 Development Roadmap
+
+MovieBox is being developed incrementally.
+
+### Phase 1 — Movie Platform Foundation
+
+* [x] Authentication
+* [x] TMDB integration
+* [x] Movie dashboard
+* [x] Movie details
+* [x] Search
+* [x] Favorites
+* [x] Watchlist
+* [x] Responsive streaming-style UI
+
+### Phase 2 — Streaming Infrastructure
+
+* [x] Internet Archive service
+* [x] Archive item search
+* [x] Metadata retrieval
+* [x] Video file detection
+* [x] Playable video detection
+
+### Phase 3 — Streaming Integration
+
+* [ ] Streaming provider matching
+* [ ] Movie-to-video matching
+* [ ] Watch route
+* [ ] Video player
+* [ ] Streaming availability handling
+
+### Phase 4 — Enhanced Viewing Experience
+
+* [ ] Continue Watching
+* [ ] Watch History
+* [ ] Playback progress
+* [ ] Resume playback
+* [ ] Improved player controls
+
+### Future Improvements
+
+* Advanced movie filtering
+* Genre-based discovery
+* User ratings and reviews
+* Personalized recommendations
+* Performance optimization
+* Caching strategy
+* Advanced player features
+* Production deployment
+
+---
+
+## ⚡ Local Development
+
+### 1. Clone the repository
+
+```bash
+git clone <YOUR_REPOSITORY_URL>
+cd MovieBox
+```
+
+### 2. Install dependencies
+
+```bash
+composer install
+npm install
+```
+
+### 3. Configure environment
+
+```bash
+copy .env.example .env
+```
+
+Generate the application key:
+
+```bash
+php artisan key:generate
+```
+
+### 4. Configure database
+
+Update `.env`:
+
+```env
+DB_DATABASE=moviebox
+DB_USERNAME=root
+DB_PASSWORD=
+```
+
+Then run:
+
+```bash
+php artisan migrate
+```
+
+### 5. Configure TMDB
+
+Add your TMDB API key:
+
+```env
+TMDB_API_KEY=your_tmdb_api_key
+```
+
+### 6. Build frontend assets
+
+```bash
+npm run build
+```
+
+### 7. Clear Laravel cache
+
+```bash
+php artisan optimize:clear
+```
+
+### 8. Start development server
+
+```bash
+php artisan serve
+```
+
+Then open:
+
+```text
+http://127.0.0.1:8000
+```
+
+---
+
+## 🧪 Testing
+
+Before committing changes, the following commands can be used to validate the application:
+
+```bash
+php artisan optimize:clear
+php artisan route:list
+php artisan view:cache
+```
+
+PHP syntax can also be checked with:
+
+```bash
+php -l path/to/file.php
+```
+
+---
+
+## 🔒 Security Notes
+
+Sensitive credentials should never be committed to GitHub.
+
+Use `.env` for:
+
+* API keys
+* Database credentials
+* Application secrets
+* Environment-specific configuration
+
+The `.env` file should remain excluded through `.gitignore`.
+
+---
+
+## 🎯 Project Goals
+
+MovieBox is designed as both a functional movie platform and a practical Laravel portfolio project demonstrating:
+
+* Laravel MVC architecture
+* Service-layer API integration
+* REST API consumption
+* Authentication
+* Database relationships
+* AJAX interactions
+* Dynamic Blade components
+* Responsive frontend development
+* External API handling
+* Error handling
+* Incremental feature development
+
+---
+
+## 📌 Current Status
+
+**Development Status: Active**
+
+Current implementation includes a complete movie discovery experience with authentication, TMDB integration, Favorites, Watchlist, Search, Movie Details, and a prepared streaming service layer.
+
+The streaming player and provider integration are being developed separately to keep the application modular and maintainable.
+
+---
+
+## 👨‍💻 Author
+
+**Muhammad Syafi'i**
+
+Built as a Laravel portfolio project focused on modern web application development, API integration, and cinematic user experience.
+
+---
+
+## 📄 License
+
+This project is intended for educational and portfolio purposes.
+
+Movie metadata and imagery are provided through third-party services and remain subject to their respective terms and licenses.
